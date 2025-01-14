@@ -1,0 +1,49 @@
+/* Slide Down Animation for Mobile Menu */
+@keyframes slideDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .mobile-menu {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  /* Ensure links are clickable */
+  a {
+    text-decoration: none; /* Removes underline from links */
+    cursor: pointer; /* Ensures a clickable pointer cursor */
+  }
+  
+  /* Styling for navigation links */
+  .nav-link {
+    color: #ffffff; /* Default text color for links */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #38a169; /* Hover color */
+  }
+  
+  /* Specific styling for mobile menu links */
+  .mobile-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    border-bottom: 1px solid #4a5568; /* Divider between links */
+  }
+  
+  .mobile-menu a:hover {
+    color: #38a169; /* Hover effect */
+    background-color: #2d3748; /* Background highlight */
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
