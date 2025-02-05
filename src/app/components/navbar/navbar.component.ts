@@ -42,6 +42,11 @@ export class NavbarComponent {
     // Navigate to the Insights component
     this.router.navigate(['/experience']);
   }
+
+  viewCertificate() {
+    // Navigate to the Insights component
+    this.router.navigate(['/certificates']);
+  }
   viewContact() {
     // Navigate to the Insights component
     this.router.navigate(['/contact']);

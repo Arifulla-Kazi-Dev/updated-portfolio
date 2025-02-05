@@ -1,0 +1,39 @@
+/* For small screens (mobile devices) */
+@media (max-width: 640px) {
+    #projects .grid {
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+    #projects h2 {
+      font-size: 2rem; /* Adjust font size */
+    }
+    #projects p {
+      font-size: 1rem; /* Adjust paragraph font size */
+    }
+  }
+  
+  /* For tablets (landscape mode) */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    #projects .grid {
+      grid-template-columns: 1fr 1fr; /* Two columns layout */
+    }
+    #projects h2 {
+      font-size: 2.5rem; /* Adjust font size */
+    }
+    #projects p {
+      font-size: 1.125rem; /* Adjust paragraph font size */
+    }
+  }
+  
+  /* For larger screens (desktops and above) */
+  @media (min-width: 1025px) {
+    #projects .grid {
+      grid-template-columns: 1fr 1fr 1fr; /* Three columns layout */
+    }
+    #projects h2 {
+      font-size: 3rem; /* Adjust font size */
+    }
+    #projects p {
+      font-size: 1.25rem; /* Adjust paragraph font size */
+    }
+  }
+  

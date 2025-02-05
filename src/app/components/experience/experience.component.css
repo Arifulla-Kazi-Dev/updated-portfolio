@@ -1,0 +1,58 @@
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    #experience {
+      padding: 12px;
+    }
+    #experience h2 {
+      font-size: 3rem;
+    }
+    #experience .text-lg {
+      font-size: 1rem;
+    }
+    #experience .bg-gray-800 {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #experience {
+      padding: 10px;
+    }
+    #experience h2 {
+      font-size: 2.5rem;
+    }
+    #experience .text-lg {
+      font-size: 0.9rem;
+    }
+    #experience .bg-gray-800 {
+      padding: 16px;
+    }
+    #experience .text-2xl {
+      font-size: 1.5rem;
+    }
+    #experience .list-disc {
+      margin-left: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #experience h2 {
+      font-size: 2rem;
+    }
+    #experience .text-lg {
+      font-size: 0.8rem;
+    }
+    #experience .bg-gray-800 {
+      padding: 12px;
+    }
+    #experience .text-2xl {
+      font-size: 1.25rem;
+    }
+    #experience .list-disc {
+      margin-left: 12px;
+    }
+    #experience .container {
+      padding: 8px;
+    }
+  }
+  

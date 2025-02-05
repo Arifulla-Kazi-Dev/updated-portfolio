@@ -1,0 +1,51 @@
+/* For small screens (mobile devices) */
+@media (max-width: 640px) {
+    #skills .grid {
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+    #skills h2 {
+      font-size: 2rem; /* Adjust font size */
+    }
+    #skills p {
+      font-size: 1rem; /* Adjust paragraph font size */
+    }
+    #skills .bg-gray-800 {
+      padding: 4rem 1.5rem; /* Adjust padding for smaller screens */
+    }
+    #skills ul {
+      padding-left: 1rem; /* Adjust list padding */
+    }
+  }
+  
+  /* For tablets (landscape mode) */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    #skills .grid {
+      grid-template-columns: 1fr 1fr; /* Two columns layout */
+    }
+    #skills h2 {
+      font-size: 2.5rem; /* Adjust font size */
+    }
+    #skills p {
+      font-size: 1.125rem; /* Adjust paragraph font size */
+    }
+    #skills .bg-gray-800 {
+      padding: 4rem 2rem; /* Adjust padding */
+    }
+  }
+  
+  /* For larger screens (desktops and above) */
+  @media (min-width: 1025px) {
+    #skills .grid {
+      grid-template-columns: 1fr 1fr 1fr; /* Three columns layout */
+    }
+    #skills h2 {
+      font-size: 3rem; /* Adjust font size */
+    }
+    #skills p {
+      font-size: 1.25rem; /* Adjust paragraph font size */
+    }
+    #skills .bg-gray-800 {
+      padding: 4rem 4rem; /* Maintain padding for larger screens */
+    }
+  }
+  

@@ -27,3 +27,110 @@
 .animate-slideRight {
   animation: slideRight 1s ease-out forwards;
 }
+/* Media Queries for Hero Section */
+
+/* For tablets (768px and up) */
+@media (min-width: 768px) {
+  /* Adjust padding for larger screens */
+  .hero {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* Animate slide effects for larger screens */
+  .animate-slideLeft {
+    animation: slideLeft 0.5s ease-out;
+  }
+
+  .animate-slideRight {
+    animation: slideRight 0.5s ease-out;
+  }
+
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* For mobile screens (below 768px) */
+@media (max-width: 767px) {
+  /* Center everything for smaller screens */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  /* Adjust content container */
+  .max-w-6xl {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Reduce heading and paragraph font sizes */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Adjust button size and spacing */
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Adjust profile picture size */
+  img {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+/* For small mobile screens (below 480px) */
+@media (max-width: 480px) {
+  /* Reduce padding further */
+  .hero {
+    padding: 1rem;
+  }
+
+  /* Adjust font sizes for readability */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  /* Adjust image size */
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+}

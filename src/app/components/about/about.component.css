@@ -42,4 +42,60 @@
   .animate-slideInLeft {
     animation: slideInLeft 1s ease-out;
   }
-  
+  /* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  #about .container {
+    padding: 16px;
+  }
+  #about h2 {
+    font-size: 2.5rem;
+  }
+  #about h3 {
+    font-size: 2rem;
+  }
+  #about p {
+    font-size: 1rem;
+  }
+  #about .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  #about .container {
+    padding: 12px;
+  }
+  #about h2 {
+    font-size: 2rem;
+  }
+  #about h3 {
+    font-size: 1.75rem;
+  }
+  #about p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  #about img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2 {
+    font-size: 1.5rem;
+  }
+  #about h3 {
+    font-size: 1.5rem;
+  }
+  #about p {
+    font-size: 0.8rem;
+  }
+  #about .grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  #about .shadow-lg {
+    box-shadow: none;
+  }
+}

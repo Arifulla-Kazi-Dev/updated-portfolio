@@ -46,4 +46,93 @@
   html {
     scroll-behavior: smooth;
   }
-  
+  /* Media Queries for Responsive Design */
+
+/* For tablets (768px and up) */
+@media (min-width: 768px) {
+  /* Show Desktop Links */
+  .md\\:flex {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Hide Mobile Menu */
+  .mobile-menu {
+    display: none !important;
+  }
+
+  /* Hide Hamburger Icon */
+  .md\\:hidden {
+    display: none !important;
+  }
+}
+
+/* For mobile screens (below 768px) */
+@media (max-width: 767px) {
+  /* Adjust Navbar Padding */
+  .container {
+    padding: 0.8rem 1rem;
+  }
+
+  /* Hamburger Icon */
+  .md\\:hidden {
+    display: flex !important;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none; /* Hide initially */
+    width: 100%;
+    background-color: #2d3748; /* Matches navbar background */
+    border-top: 1px solid #4a5568;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Show Mobile Menu when toggled */
+  .mobile-menu.open {
+    display: block;
+  }
+
+  /* Mobile Menu Links */
+  .mobile-menu a {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 1rem;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-bottom: 1px solid #4a5568;
+  }
+
+  .mobile-menu a:hover {
+    color: #48bb78;
+    background: rgba(72, 187, 120, 0.1);
+  }
+}
+
+/* For small mobile screens (below 480px) */
+@media (max-width: 480px) {
+  /* Adjust font sizes and padding for better visibility */
+  .text-2xl {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .mobile-menu a {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
