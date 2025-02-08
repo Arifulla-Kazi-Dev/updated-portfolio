@@ -1,0 +1,12 @@
+{
+  "routes": {
+    "/updated-portfolio": {},
+    "/updated-portfolio/about": {},
+    "/updated-portfolio/certificates": {},
+    "/updated-portfolio/contact": {},
+    "/updated-portfolio/experience": {},
+    "/updated-portfolio/projects": {},
+    "/updated-portfolio/skills": {},
+    "/updated-portfolio/testimonials": {}
+  }
+}
