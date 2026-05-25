@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroComponent } from './components/hero/hero.component';
+import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CertificateComponent } from './components/certificate/certificate.component';
 import { ExperienceComponent } from './components/experience/experience.component';
-import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HeroComponent },
+  { path: '', component: HomeComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'certificates', component: CertificateComponent },
   { path: 'experience', component: ExperienceComponent },
-  { path: 'testimonials', component: TestimonialsComponent },
+  { path: 'testimonials', redirectTo: '', pathMatch: 'full' },
   { path: 'contact', component: ContactComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

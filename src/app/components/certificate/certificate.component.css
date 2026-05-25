@@ -1,0 +1,78 @@
+.credential-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.credential-grid article {
+  display: flex;
+  min-height: 14rem;
+  flex-direction: column;
+  padding: 1.35rem;
+}
+
+.credential-icon {
+  display: grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  place-items: center;
+  margin-bottom: 1.15rem;
+  border-radius: 0.72rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+.credential-grid article:hover .credential-icon {
+  background: var(--surface-accent);
+  transform: translateY(-2px);
+}
+
+.issuer {
+  margin: 0 0 0.85rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0 0 0.72rem;
+  color: var(--text);
+  font: 700 1.08rem/1.35 var(--font-display);
+}
+
+.summary {
+  margin: 0 0 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.91rem;
+  line-height: 1.62;
+}
+
+.credential-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: auto;
+  font-size: 0.87rem;
+}
+
+.credential-links a:hover app-icon {
+  transform: translate(0.1rem, -0.1rem);
+}
+
+.credential-links app-icon {
+  transition: transform 180ms ease;
+}
+
+@media (min-width: 620px) {
+  .credential-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .credential-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

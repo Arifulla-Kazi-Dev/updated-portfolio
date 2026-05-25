@@ -1,39 +1,88 @@
-/* For small screens (mobile devices) */
-@media (max-width: 640px) {
-    #projects .grid {
-      grid-template-columns: 1fr; /* Single column layout */
-    }
-    #projects h2 {
-      font-size: 2rem; /* Adjust font size */
-    }
-    #projects p {
-      font-size: 1rem; /* Adjust paragraph font size */
-    }
+.projects-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.section-header {
+  margin-bottom: 0;
+}
+
+.github-link {
+  align-self: flex-start;
+  font-size: 0.92rem;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.projects-grid article {
+  display: flex;
+  min-height: 13.5rem;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.category app-icon {
+  color: var(--accent);
+}
+
+h3 {
+  margin: 0 0 0.58rem;
+  font: 700 1.05rem/1.35 var(--font-display);
+}
+
+p {
+  margin: 0 0 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  font-size: 0.86rem;
+}
+
+.project-links a app-icon {
+  transition: transform 180ms ease;
+}
+
+.project-links a:hover app-icon {
+  transform: translateY(-1px);
+}
+
+@media (min-width: 620px) {
+  .projects-head {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
   }
-  
-  /* For tablets (landscape mode) */
-  @media (min-width: 641px) and (max-width: 1024px) {
-    #projects .grid {
-      grid-template-columns: 1fr 1fr; /* Two columns layout */
-    }
-    #projects h2 {
-      font-size: 2.5rem; /* Adjust font size */
-    }
-    #projects p {
-      font-size: 1.125rem; /* Adjust paragraph font size */
-    }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* For larger screens (desktops and above) */
-  @media (min-width: 1025px) {
-    #projects .grid {
-      grid-template-columns: 1fr 1fr 1fr; /* Three columns layout */
-    }
-    #projects h2 {
-      font-size: 3rem; /* Adjust font size */
-    }
-    #projects p {
-      font-size: 1.25rem; /* Adjust paragraph font size */
-    }
+}
+
+@media (min-width: 960px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
+}

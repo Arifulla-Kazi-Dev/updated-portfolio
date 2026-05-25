@@ -1,51 +1,42 @@
-/* For small screens (mobile devices) */
-@media (max-width: 640px) {
-    #skills .grid {
-      grid-template-columns: 1fr; /* Single column layout */
-    }
-    #skills h2 {
-      font-size: 2rem; /* Adjust font size */
-    }
-    #skills p {
-      font-size: 1rem; /* Adjust paragraph font size */
-    }
-    #skills .bg-gray-800 {
-      padding: 4rem 1.5rem; /* Adjust padding for smaller screens */
-    }
-    #skills ul {
-      padding-left: 1rem; /* Adjust list padding */
-    }
+.skills-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.skills-grid article {
+  padding: clamp(1.25rem, 4vw, 1.65rem);
+}
+
+.skill-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  margin-bottom: 1.2rem;
+}
+
+.skill-heading app-icon {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  border-radius: 0.72rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transition: transform 220ms ease;
+}
+
+.skills-grid article:hover .skill-heading app-icon {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.skills-grid h3 {
+  margin: 0;
+  color: var(--text);
+  font: 700 1.17rem/1.3 var(--font-display);
+}
+
+@media (min-width: 680px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* For tablets (landscape mode) */
-  @media (min-width: 641px) and (max-width: 1024px) {
-    #skills .grid {
-      grid-template-columns: 1fr 1fr; /* Two columns layout */
-    }
-    #skills h2 {
-      font-size: 2.5rem; /* Adjust font size */
-    }
-    #skills p {
-      font-size: 1.125rem; /* Adjust paragraph font size */
-    }
-    #skills .bg-gray-800 {
-      padding: 4rem 2rem; /* Adjust padding */
-    }
-  }
-  
-  /* For larger screens (desktops and above) */
-  @media (min-width: 1025px) {
-    #skills .grid {
-      grid-template-columns: 1fr 1fr 1fr; /* Three columns layout */
-    }
-    #skills h2 {
-      font-size: 3rem; /* Adjust font size */
-    }
-    #skills p {
-      font-size: 1.25rem; /* Adjust paragraph font size */
-    }
-    #skills .bg-gray-800 {
-      padding: 4rem 4rem; /* Maintain padding for larger screens */
-    }
-  }
-  
+}

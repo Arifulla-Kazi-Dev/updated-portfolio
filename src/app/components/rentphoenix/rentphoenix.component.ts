@@ -3,11 +3,9 @@ import { RevealDirective } from '../../directives/reveal.directive';
 import { IconComponent } from '../ui/icon/icon.component';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-rentphoenix',
   imports: [IconComponent, RevealDirective],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  templateUrl: './rentphoenix.component.html',
+  styleUrl: './rentphoenix.component.css'
 })
-export class AboutComponent {
-
-}
+export class RentphoenixComponent {}

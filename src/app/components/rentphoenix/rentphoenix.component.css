@@ -1,0 +1,100 @@
+.venture-hero {
+  display: grid;
+  gap: clamp(1.6rem, 5vw, 3rem);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  background:
+    linear-gradient(120deg, var(--surface), color-mix(in srgb, var(--surface-accent) 70%, transparent));
+}
+
+.venture-copy {
+  max-width: 590px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.venture-purpose {
+  align-self: end;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface-strong);
+}
+
+.venture-purpose p {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  margin: 0 0 0.58rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.venture-purpose strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.97rem;
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-grid article {
+  padding: 1.35rem;
+}
+
+.feature-icon {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  margin-bottom: 1.1rem;
+  border-radius: 0.76rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transition: transform 230ms ease, background-color 230ms ease;
+}
+
+.feature-grid article:hover .feature-icon {
+  background: var(--surface-accent);
+  transform: translateY(-3px) scale(1.04);
+}
+
+.feature-grid h3 {
+  margin: 0 0 0.6rem;
+  font: 700 1.06rem/1.3 var(--font-display);
+}
+
+.feature-grid p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.67;
+}
+
+@media (min-width: 740px) {
+  .venture-hero {
+    grid-template-columns: 1.13fr 0.87fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .feature-grid article {
+    grid-column: span 2;
+  }
+
+  .feature-grid article:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+}

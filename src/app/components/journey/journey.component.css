@@ -1,0 +1,77 @@
+.journey-layout {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.section-header {
+  margin: 0;
+}
+
+.timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 2.15rem 2.7rem;
+  border-left: 1px solid var(--border-strong);
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+  border-color: transparent;
+}
+
+.milestone-icon {
+  position: absolute;
+  top: 0;
+  left: -1.05rem;
+  display: grid;
+  width: 2.05rem;
+  height: 2.05rem;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.64rem;
+  background: var(--surface-strong);
+  color: var(--accent);
+  box-shadow: var(--shadow-soft);
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+.timeline li:hover .milestone-icon {
+  background: var(--surface-accent);
+  transform: scale(1.06);
+}
+
+.date {
+  display: block;
+  margin-bottom: 0.48rem;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.timeline h3 {
+  margin: 0 0 0.52rem;
+  font: 700 1.12rem/1.28 var(--font-display);
+}
+
+.timeline p {
+  max-width: 570px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.67;
+}
+
+@media (min-width: 850px) {
+  .journey-layout {
+    grid-template-columns: 0.8fr 1fr;
+  }
+}

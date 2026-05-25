@@ -1,125 +1,123 @@
-<nav class="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-        <button 
-        (click)="viewHome()"
-        >
-        Arifulla Kazi
-        </button>
-      </div>
-  
-      <!-- Links (Desktop) -->
-      <div class="hidden md:flex space-x-8 items-center">
-        <button 
-        (click)="viewHome()"
-        class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-      >
-        Home
-      </button>
-      
-        <button 
-          (click)="viewAbout()"
-          class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-        >
-          About
-        </button>
-        
-        <button 
-          (click)="viewSkills()"
-          class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-        >
-          Skills
-        </button>
+<header class="navbar">
+  <div class="nav-container">
+    <a class="brand" routerLink="/" fragment="home" (click)="closeMenu()" aria-label="Arifulla Kazi home">
+      <span class="brand-mark" aria-hidden="true">AK</span>
+      <span>
+        <strong>Arifulla Kazi</strong>
+        <small>Founder, RentPhoenix</small>
+      </span>
+    </a>
 
-        <button 
-          (click)="viewProject()"
-          class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-        >
-          Projects
-        </button>
-        
-
-        <button 
-        (click)="viewCertificate()"
-        class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-      >
-        Certificates
-      </button>
-
-
-        <button 
-          (click)="viewExperience()"
-          class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-        >
-          Experience
-        </button>
-
-        <button 
-          (click)="viewContact()"
-          class="nav-link text-gray-300 hover:text-green-400 font-medium transition-all duration-300"
-        >
-        Contact
-        </button>
-        
-        
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      @for (item of navigationItems; track item.id) {
         <a
-          href="https://github.com/Arifulla-Kazi-Dev/MyProjects/blob/main/ARIFULLA%20KAZI_CV.docx"
-          class="px-5 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg shadow-lg hover:shadow-xl font-medium hover:scale-105 transition-transform duration-300"
+          class="nav-link"
+          [class.active]="activeSection === item.id"
+          [attr.aria-current]="activeSection === item.id ? 'location' : null"
+          routerLink="/"
+          [fragment]="item.id"
         >
-          Download Resume
+          {{ item.label }}
         </a>
-      </div>
-  
-      <!-- Hamburger Icon (Mobile) -->
-      <div
-        class="md:hidden text-gray-300 hover:text-green-400 cursor-pointer transition-all duration-300"
+      }
+    </nav>
+
+    <div class="nav-actions">
+      <a
+        class="connect-link"
+        href="https://www.linkedin.com/in/arifulla-kazi-b73743243"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon name="linkedin" size="sm" />
+        LinkedIn
+      </a>
+      <button class="theme-toggle" type="button" (click)="toggleTheme()" aria-label="Toggle light and dark theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.64 5.64l1.77 1.77M16.59 16.59l1.77 1.77M18.36 5.64l-1.77 1.77M7.41 16.59l-1.77 1.77M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/>
+        </svg>
+      </button>
+      <button
+        #menuToggle
+        class="menu-toggle"
+        type="button"
         (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="mobile-navigation"
+        [attr.aria-label]="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
       >
-        <i class="fas fa-bars text-2xl"></i>
-      </div>
+        <span [class.open]="isMenuOpen"></span>
+      </button>
     </div>
-  
-    <!-- Mobile Menu -->
-    <div
-      class="mobile-menu md:hidden bg-gray-800 border-t border-gray-700 hidden"
-      [ngClass]="{ hidden: !isMenuOpen }"
-    >
+  </div>
+
+  <button
+    class="nav-scrim"
+    [class.visible]="isMenuOpen"
+    type="button"
+    tabindex="-1"
+    aria-hidden="true"
+    (click)="closeMenu(true)"
+  ></button>
+
+  <nav
+    #mobileNavigation
+    id="mobile-navigation"
+    class="mobile-nav"
+    [class.open]="isMenuOpen"
+    [attr.aria-hidden]="!isMenuOpen"
+    [attr.inert]="isMenuOpen ? null : ''"
+    aria-label="Mobile navigation"
+  >
+    <div class="mobile-venture">
+      <p class="venture-badge"><app-icon name="building" size="sm" /> Incubated at CIBA Goa</p>
+      <strong>RentPhoenix</strong>
+      <p class="venture-copy">Rental management systems built for clearer coordination.</p>
+      <a routerLink="/" fragment="rentphoenix" (click)="closeMenu()" class="venture-link">
+        Explore venture <app-icon name="arrow-right" size="sm" />
+      </a>
+    </div>
+
+    <p class="mobile-nav-label">Navigate</p>
+    <div class="mobile-links">
+      @for (item of navigationItems; track item.id; let index = $index) {
+        <a
+          [class.active]="activeSection === item.id"
+          [attr.aria-current]="activeSection === item.id ? 'location' : null"
+          routerLink="/"
+          [fragment]="item.id"
+          (click)="closeMenu()"
+        >
+          <span aria-hidden="true">0{{ index + 1 }}</span>
+          {{ item.label }}
+        </a>
+      }
+    </div>
+
+    <div class="mobile-actions">
       <a
-        routerLink="/"
-        class="block px-6 py-3 text-gray-300 hover:text-green-400 font-medium border-b border-gray-700"
+        class="mobile-connect"
+        href="https://www.linkedin.com/in/arifulla-kazi-b73743243"
+        target="_blank"
+        rel="noopener noreferrer"
         (click)="closeMenu()"
       >
-        Home
+        <app-icon name="linkedin" size="sm" />
+        LinkedIn
       </a>
       <a
-        routerLink="/about"
-        class="block px-6 py-3 text-gray-300 hover:text-green-400 font-medium border-b border-gray-700"
+        class="mobile-secondary"
+        href="https://github.com/Arifulla-Kazi-Dev"
+        target="_blank"
+        rel="noopener noreferrer"
         (click)="closeMenu()"
       >
-        About
-      </a>
-      <a
-        routerLink="/projects"
-        class="block px-6 py-3 text-gray-300 hover:text-green-400 font-medium border-b border-gray-700"
-        (click)="closeMenu()"
-      >
-        Projects
-      </a>
-      <a
-        routerLink="/contact"
-        class="block px-6 py-3 text-gray-300 hover:text-green-400 font-medium border-b border-gray-700"
-        (click)="closeMenu()"
-      >
-        Contact
-      </a>
-      <a
-        routerLink="/resume"
-        class="block px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium text-center"
-        (click)="closeMenu()"
-      >
-        Download Resume
+        <app-icon name="github" size="sm" />
+        GitHub
       </a>
     </div>
   </nav>
-  
+</header>

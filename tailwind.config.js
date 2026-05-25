@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
+  safelist: [
+    'hidden',
+    'block',
+    'flex'
+  ],
     theme: {
       extend: {
         keyframes: {

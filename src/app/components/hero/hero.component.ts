@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; 
-// Import Router
+import { RevealDirective } from '../../directives/reveal.directive';
+import { IconComponent } from '../ui/icon/icon.component';
+
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [IconComponent, RevealDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
-export class HeroComponent {
-
-  constructor(private router: Router) {}
-  viewProject() {
-    // Navigate to the Insights component
-    this.router.navigate(['/projects']);
-  }
-  viewContact() {
-    // Navigate to the Insights component
-    this.router.navigate(['/contact']);
-  }
-}
+export class HeroComponent {}

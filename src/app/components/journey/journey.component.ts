@@ -3,11 +3,9 @@ import { RevealDirective } from '../../directives/reveal.directive';
 import { IconComponent } from '../ui/icon/icon.component';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-journey',
   imports: [IconComponent, RevealDirective],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  templateUrl: './journey.component.html',
+  styleUrl: './journey.component.css'
 })
-export class AboutComponent {
-
-}
+export class JourneyComponent {}

@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Portfolio</title>
+  <title>Arifulla Kazi | Founder @ RentPhoenix</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arifulla Kazi is the founder of RentPhoenix, building digital systems for rental management, automation, and transparent landlord-tenant coordination from Goa, India.">
+  <meta name="theme-color" content="#120c20">
+  <meta property="og:title" content="Arifulla Kazi | Founder @ RentPhoenix">
+  <meta property="og:description" content="Building real-world digital systems, scaling ideas into products and growing through execution.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('arifulla-theme');
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme || (systemDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#120c20' : '#f8f6fc');
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    }());
+  </script>
 </head>
 <body>
   <app-root></app-root>
