@@ -19,17 +19,17 @@ export class SkillsComponent {
     {
       title: 'Product & Startup',
       icon: 'compass',
-      skills: ['Product Development', 'SaaS', 'Startup Operations', 'Business Strategy', 'User Onboarding']
+      skills: ['Product Development', 'SaaS', 'Product Launches', 'Startup Operations', 'Business Strategy', 'User Onboarding']
     },
     {
       title: 'Technical',
       icon: 'code',
-      skills: ['Angular', 'TypeScript', 'Firebase', 'Firestore', 'Cloud Functions', 'JavaScript', 'TailwindCSS']
+      skills: ['Angular', 'TypeScript', 'Flutter', 'Firebase', 'Firestore', 'Cloud Functions', 'JavaScript', 'TailwindCSS', 'PWA / Android']
     },
     {
       title: 'Systems',
       icon: 'network',
-      skills: ['Automation', 'Real-Time Systems', 'System Architecture', 'UI/UX', 'Security Rules']
+      skills: ['Automation', 'WhatsApp Integrations', 'OCR Workflows', 'Real-Time Systems', 'Multi-Tenant Architecture', 'Role-Based Access', 'Security Rules', 'UI/UX']
     },
     {
       title: 'Personal',

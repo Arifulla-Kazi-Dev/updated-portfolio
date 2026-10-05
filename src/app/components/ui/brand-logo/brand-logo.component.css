@@ -1,0 +1,39 @@
+:host {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  line-height: 0;
+}
+
+.tile {
+  display: grid;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 26%;
+  box-shadow: var(--shadow-soft);
+}
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The company logo is a roundel, as on rentphoenix-company-website. */
+.tile--company {
+  border-radius: 50%;
+  background: #ebebeb;
+}
+
+/* The app icon carries its own cream background. */
+.tile--rpos {
+  background: #ebecdf;
+}
+
+.tile--cofounder {
+  border-color: transparent;
+  background: #7295c1;
+}

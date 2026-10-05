@@ -61,7 +61,7 @@
 ul {
   display: grid;
   gap: 0.62rem;
-  margin: auto 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }

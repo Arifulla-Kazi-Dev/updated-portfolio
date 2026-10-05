@@ -288,6 +288,17 @@
   color: var(--accent);
 }
 
+.venture-name {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.55rem;
+}
+
+.mobile-venture .venture-name strong {
+  margin-bottom: 0;
+}
+
 .mobile-venture strong {
   display: block;
   margin-bottom: 0.38rem;

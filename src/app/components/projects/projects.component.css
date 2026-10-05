@@ -21,7 +21,6 @@
 
 .projects-grid article {
   display: flex;
-  min-height: 13.5rem;
   flex-direction: column;
   padding: 1.2rem;
 }
@@ -78,6 +77,10 @@ p {
 
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid article {
+    min-height: 13.5rem;
   }
 }
 

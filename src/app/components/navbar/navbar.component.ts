@@ -5,6 +5,7 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  NgZone,
   OnDestroy,
   PLATFORM_ID,
   Renderer2,
@@ -13,6 +14,7 @@ import {
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
+import { BrandLogoComponent } from '../ui/brand-logo/brand-logo.component';
 import { IconComponent } from '../ui/icon/icon.component';
 
 interface NavigationItem {
@@ -23,7 +25,7 @@ interface NavigationItem {
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink, IconComponent],
+  imports: [CommonModule, RouterLink, BrandLogoComponent, IconComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -33,7 +35,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   readonly navigationItems: NavigationItem[] = [
     { id: 'about', label: 'About' },
-    { id: 'rentphoenix', label: 'Venture' },
+    { id: 'rentphoenix', label: 'Ventures' },
     { id: 'journey', label: 'Journey' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
@@ -45,7 +47,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   activeSection = 'home';
   isMenuOpen = false;
 
-  private intersectionObserver?: IntersectionObserver;
+  private sections: HTMLElement[] = [];
+  private scrollFrame = 0;
   private navigationSubscription?: Subscription;
 
   constructor(
@@ -53,7 +56,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     private readonly themeService: ThemeService,
     @Inject(PLATFORM_ID) private readonly platformId: object,
     @Inject(DOCUMENT) private readonly document: Document,
-    private readonly renderer: Renderer2
+    private readonly renderer: Renderer2,
+    private readonly zone: NgZone
   ) {}
 
   ngAfterViewInit(): void {
@@ -61,6 +65,9 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
+    // Scroll tracking runs outside Angular so scrolling never triggers change detection;
+    // the zone is re-entered only when the highlighted section actually changes.
+    this.zone.runOutsideAngular(() => window.addEventListener('scroll', this.onScroll, { passive: true }));
     this.queueSectionObservation();
     this.navigationSubscription = this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
@@ -72,7 +79,10 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.setMenuState(false);
-    this.intersectionObserver?.disconnect();
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('scroll', this.onScroll);
+      window.cancelAnimationFrame(this.scrollFrame);
+    }
     this.navigationSubscription?.unsubscribe();
   }
 
@@ -140,39 +150,45 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     this.themeService.toggle();
   }
 
+  private readonly onScroll = (): void => {
+    if (this.scrollFrame) {
+      return;
+    }
+    this.scrollFrame = window.requestAnimationFrame(() => {
+      this.scrollFrame = 0;
+      this.updateActiveSection();
+    });
+  };
+
   private queueSectionObservation(): void {
-    window.requestAnimationFrame(() => this.observeSections());
+    window.requestAnimationFrame(() => {
+      this.sections = Array.from(this.document.querySelectorAll<HTMLElement>('[data-nav-section]'));
+      this.updateActiveSection();
+    });
   }
 
-  private observeSections(): void {
-    this.intersectionObserver?.disconnect();
+  /** The active section is the last one whose top has passed a line 30% down the viewport. */
+  private updateActiveSection(): void {
+    const marker = window.innerHeight * 0.3;
+    let current = this.sections[0]?.id ?? 'home';
 
-    const sections = document.querySelectorAll<HTMLElement>('[data-nav-section]');
-    if (!sections.length) {
-      return;
-    }
-
-    if (!('IntersectionObserver' in window)) {
-      return;
-    }
-
-    this.intersectionObserver = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
-
-        if (visibleSection) {
-          this.activeSection = visibleSection.target.id;
-        }
-      },
-      {
-        rootMargin: '-18% 0px -62% 0px',
-        threshold: [0.08, 0.3, 0.6]
+    for (const section of this.sections) {
+      if (section.getBoundingClientRect().top <= marker) {
+        current = section.id;
+      } else {
+        break;
       }
-    );
+    }
 
-    sections.forEach((section) => this.intersectionObserver?.observe(section));
+    // The final section is short; treat reaching the page bottom as arriving there.
+    const atBottom = window.innerHeight + window.scrollY >= this.document.documentElement.scrollHeight - 4;
+    if (atBottom && this.sections.length) {
+      current = this.sections[this.sections.length - 1].id;
+    }
+
+    if (current !== this.activeSection) {
+      this.zone.run(() => (this.activeSection = current));
+    }
   }
 
   private setMenuState(isOpen: boolean): void {

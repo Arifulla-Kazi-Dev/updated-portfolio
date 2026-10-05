@@ -1,10 +1,10 @@
 <header class="navbar">
   <div class="nav-container">
-    <a class="brand" routerLink="/" fragment="home" (click)="closeMenu()" aria-label="Arifulla Kazi home">
+    <a class="brand" routerLink="/" fragment="home" (click)="closeMenu()">
       <span class="brand-mark" aria-hidden="true">AK</span>
       <span>
         <strong>Arifulla Kazi</strong>
-        <small>Founder, RentPhoenix</small>
+        <small>Founder &amp; Director, RentPhoenix</small>
       </span>
     </a>
 
@@ -73,11 +73,14 @@
     aria-label="Mobile navigation"
   >
     <div class="mobile-venture">
-      <p class="venture-badge"><app-icon name="building" size="sm" /> Incubated at CIBA Goa</p>
-      <strong>RentPhoenix</strong>
-      <p class="venture-copy">Rental management systems built for clearer coordination.</p>
+      <p class="venture-badge"><app-icon name="building" size="sm" /> CIBA Goa · DPIIT recognized</p>
+      <div class="venture-name">
+        <app-brand-logo brand="company" size="2.4rem" />
+        <strong>RentPhoenix Technologies</strong>
+      </div>
+      <p class="venture-copy">RentPhoenix OS is live on web and Android. CO-Founder is in early access.</p>
       <a routerLink="/" fragment="rentphoenix" (click)="closeMenu()" class="venture-link">
-        Explore venture <app-icon name="arrow-right" size="sm" />
+        Explore ventures <app-icon name="arrow-right" size="sm" />
       </a>
     </div>
 

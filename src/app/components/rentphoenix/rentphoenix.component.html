@@ -1,46 +1,159 @@
 <section id="rentphoenix" class="page-section" data-nav-section aria-labelledby="rentphoenix-title">
   <div class="container">
-    <div class="venture-hero card" appReveal revealVariant="scale">
-      <div>
-        <p class="eyebrow">Flagship Venture</p>
-        <h2 id="rentphoenix-title" class="section-title">RentPhoenix</h2>
-        <p class="venture-copy">
-          A rental management product being built to make recurring operations
-          more organized, visible, and dependable for landlords and tenants.
-        </p>
-      </div>
-      <div class="venture-purpose">
-        <p><app-icon name="spark" size="sm" /> The problem space</p>
-        <strong>Rent tracking, scattered records, follow-ups, and coordination should not depend on confusion.</strong>
-      </div>
+    <div class="section-header" appReveal revealVariant="left">
+      <p class="eyebrow">Ventures</p>
+      <h2 id="rentphoenix-title" class="section-title">A company, a live platform, and the next product.</h2>
+      <p class="section-copy">
+        What started as a rental management idea is now a registered software company
+        with a product in production and a second one taking shape.
+      </p>
     </div>
 
-    <div class="feature-grid" aria-label="RentPhoenix product focus areas">
-      <article class="card" appReveal [revealDelay]="20">
-        <app-icon class="feature-icon" name="wallet" />
-        <h3>Rent tracking</h3>
-        <p>Structure recurring rent activity with a clearer view of payments and follow-ups.</p>
-      </article>
-      <article class="card" appReveal [revealDelay]="60">
-        <app-icon class="feature-icon" name="users" />
-        <h3>Landlord-tenant sync</h3>
-        <p>Support more consistent communication and shared visibility around rental workflows.</p>
-      </article>
-      <article class="card" appReveal [revealDelay]="100">
-        <app-icon class="feature-icon" name="document" />
-        <h3>Digital records</h3>
-        <p>Keep important rental information organized and easier to reference over time.</p>
-      </article>
-      <article class="card" appReveal [revealDelay]="140">
-        <app-icon class="feature-icon" name="sync" />
-        <h3>Automation</h3>
-        <p>Reduce repetitive coordination through purposeful reminders and operational workflows.</p>
-      </article>
-      <article class="card" appReveal [revealDelay]="180">
-        <app-icon class="feature-icon" name="shield" />
-        <h3>Transparency</h3>
-        <p>Design for clarity, accountability, and trust across the rental experience.</p>
-      </article>
-    </div>
+    <!-- Company entity -->
+    <article class="entity-card card" appReveal revealVariant="scale" aria-labelledby="company-title">
+      <div class="entity-main">
+        <div class="entity-head">
+          <app-brand-logo brand="company" size="3.6rem" />
+          <div>
+            <p class="entity-kind">Company</p>
+            <h3 id="company-title">RentPhoenix Technologies Pvt. Ltd.</h3>
+            <p class="entity-role">Founder &amp; Director · Goa, India</p>
+          </div>
+        </div>
+        <p class="venture-copy">
+          A software studio building enterprise software, automation platforms, and digital
+          products for businesses and government organizations. It began with RentPhoenix OS
+          and has grown into a company that ships its own products and client work.
+        </p>
+        <ul class="tag-list" aria-label="Company recognitions">
+          @for (recognition of recognitions; track recognition) {
+            <li class="tag"><app-icon name="award" size="sm" /> {{ recognition }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="entity-side">
+        <p class="side-label"><app-icon name="spark" size="sm" /> What the company builds</p>
+        <ul class="practice-list">
+          @for (area of practiceAreas; track area) {
+            <li>{{ area }}</li>
+          }
+        </ul>
+        <div class="button-row">
+          <a class="button" [href]="companyUrl" target="_blank" rel="noopener noreferrer">
+            <app-icon name="globe" size="sm" />
+            Visit company website
+          </a>
+          <a class="button button--secondary" [href]="companyLinkedInUrl" target="_blank" rel="noopener noreferrer">
+            <app-icon name="linkedin" size="sm" />
+            Company page
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Flagship product: RentPhoenix OS -->
+    <article class="product card" appReveal [revealDelay]="40" aria-labelledby="rpos-title">
+      <div class="product-head">
+        <div>
+          <p class="product-badge product-badge--live"><span aria-hidden="true"></span> Flagship · Live in production</p>
+          <div class="product-title">
+            <app-brand-logo brand="rentphoenix-os" size="3.6rem" />
+            <div>
+              <h3 id="rpos-title">RentPhoenix OS</h3>
+              <p class="product-tagline">Rental management for Indian landlords and tenants.</p>
+            </div>
+          </div>
+          <p class="venture-copy">
+            Replaces WhatsApp follow-ups, spreadsheets, and paper agreements with one shared
+            dashboard. Landlords and tenants track rent, store documents, handle maintenance,
+            and stay in sync. Free for tenants.
+          </p>
+        </div>
+        <dl class="fact-list">
+          @for (fact of rentPhoenixOs.facts; track fact.label) {
+            <div>
+              <dt>{{ fact.label }}</dt>
+              <dd>{{ fact.value }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+
+      <div class="feature-grid" aria-label="RentPhoenix OS features">
+        @for (feature of rentPhoenixOs.features; track feature.title) {
+          <div class="feature">
+            <app-icon class="feature-icon" [name]="feature.icon" />
+            <h4>{{ feature.title }}</h4>
+            <p>{{ feature.description }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="button-row product-actions">
+        <a class="button" [href]="rentPhoenixOs.webAppUrl" target="_blank" rel="noopener noreferrer">
+          <app-icon name="globe" size="sm" />
+          Open the web app
+        </a>
+        <a class="button button--secondary" [href]="rentPhoenixOs.playStoreUrl" target="_blank" rel="noopener noreferrer">
+          <app-icon name="phone" size="sm" />
+          Get it on Google Play
+        </a>
+        <a class="button button--quiet" [href]="rentPhoenixOs.productPageUrl" target="_blank" rel="noopener noreferrer">
+          Product page
+          <app-icon name="external" size="sm" />
+        </a>
+      </div>
+    </article>
+
+    <!-- Second product: CO-Founder -->
+    <article class="product product--secondary card" appReveal [revealDelay]="60" aria-labelledby="cofounder-title">
+      <div class="product-head">
+        <div>
+          <p class="product-badge"><app-icon name="rocket" size="sm" /> Second product · Early stage</p>
+          <div class="product-title">
+            <app-brand-logo brand="cofounder" size="3.6rem" />
+            <div>
+              <h3 id="cofounder-title">CO-Founder</h3>
+              <p class="product-tagline">A finance OS for startup founders.</p>
+            </div>
+          </div>
+          <p class="venture-copy">
+            Funding, expenses, salaries, compliance, and team access in one ledger,
+            so founders always know where the company's money stands and how much
+            runway is left. Built for how Indian startups actually operate.
+          </p>
+        </div>
+        <dl class="fact-list">
+          @for (fact of coFounder.facts; track fact.label) {
+            <div>
+              <dt>{{ fact.label }}</dt>
+              <dd>{{ fact.value }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+
+      <div class="feature-grid feature-grid--compact" aria-label="CO-Founder features">
+        @for (feature of coFounder.features; track feature.title) {
+          <div class="feature">
+            <app-icon class="feature-icon" [name]="feature.icon" />
+            <h4>{{ feature.title }}</h4>
+            <p>{{ feature.description }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="button-row product-actions">
+        <a class="button" [href]="coFounder.appUrl" target="_blank" rel="noopener noreferrer">
+          Try CO-Founder
+          <app-icon name="arrow-right" size="sm" />
+        </a>
+        <a class="button button--quiet" [href]="coFounder.productPageUrl" target="_blank" rel="noopener noreferrer">
+          Product page
+          <app-icon name="external" size="sm" />
+        </a>
+      </div>
+    </article>
   </div>
 </section>

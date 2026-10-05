@@ -7,8 +7,10 @@ interface Project {
   category: string;
   icon: IconName;
   description: string;
-  repository: string;
+  repository?: string;
   liveUrl?: string;
+  /** Label for the live link; defaults to "Live demo". */
+  liveLabel?: string;
 }
 
 @Component({
@@ -24,8 +26,8 @@ export class ProjectsComponent {
       category: 'Web Application',
       icon: 'layers',
       description: 'A digital assistant concept for daily tasks, routines, and personal organization.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Personal_Assistant',
-      liveUrl: 'https://personal-info-ak.netlify.app/'
+      repository: 'https://github.com/Arifulla-Kazi-Dev/Personal_Assistant',
+      liveUrl: 'https://arifulla-kazi-dev.github.io/Personal_Assistant/index.html'
     },
     {
       title: 'Expense Tracker',
@@ -40,15 +42,14 @@ export class ProjectsComponent {
       category: 'Product Prototype',
       icon: 'rocket',
       description: 'Learning flows supported by quizzes, challenges, and reward mechanics.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/Learning-Platform',
-      liveUrl: 'https://learning-platform-zeta-five.vercel.app/home'
+      repository: 'https://github.com/Arifulla-Kazi-Dev/Gamified-Learning',
+      liveUrl: 'https://arifulla-kazi-dev.github.io/Gamified-Learning/'
     },
     {
       title: 'Smart Traffic Light System',
       category: 'IoT',
       icon: 'network',
       description: 'An RFID and ESP-based concept for emergency vehicle traffic prioritization.',
-      repository: 'https://github.com/Arifulla-Kazi/smart-traffic-system',
       liveUrl: 'https://chimerical-pothos-24cd8f.netlify.app/'
     },
     {
@@ -56,22 +57,22 @@ export class ProjectsComponent {
       category: 'Electronics',
       icon: 'network',
       description: 'PCB design integrating an ESP32 core with supporting components for IoT use.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/PCB_ESP32',
-      liveUrl: 'https://i.ibb.co/qYgnSCsP/3-D-view-PCB-ESP32.jpg'
+      liveUrl: 'images/esp32-pcb-schematic.webp',
+      liveLabel: 'View schematic'
     },
     {
       title: 'Traffic Module PCB',
       category: 'Electronics',
       icon: 'network',
       description: 'KiCad schematic and layout work for a traffic light module.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Traffic%20Module'
+      liveUrl: 'images/traffic-module-pcb-3d.webp',
+      liveLabel: 'View 3D board'
     },
     {
       title: 'Learning Dashboard',
       category: 'Web Experience',
       icon: 'document',
       description: 'A simple learning portal covering career paths, subjects, resources, and quizzes.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Learning_Dashboard',
       liveUrl: 'https://learning-dashboard-c661ec.netlify.app'
     },
     {
@@ -87,24 +88,24 @@ export class ProjectsComponent {
       category: 'JavaScript',
       icon: 'code',
       description: 'An API-driven recipe search application with an accessible browsing interface.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Recipe%20Finder',
-      liveUrl: 'https://recipe-finder-sscp.netlify.app/'
+      repository: 'https://github.com/Arifulla-Kazi-Dev/Recipe-finder',
+      liveUrl: 'https://arifulla-kazi-dev.github.io/Recipe-finder/index.html'
     },
     {
       title: 'Explore Your Dream Cars',
       category: 'Web Experience',
       icon: 'compass',
       description: 'A vehicle exploration concept for browsing models, accessories, and offers.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Car_model',
-      liveUrl: 'https://car-model-ce4130.netlify.app/'
+      repository: 'https://github.com/Arifulla-Kazi-Dev/explore-your-dream-cars',
+      liveUrl: 'https://arifulla-kazi-dev.github.io/explore-your-dream-cars/Home.html'
     },
     {
       title: 'Customizable Pizza Page',
       category: 'JavaScript',
       icon: 'code',
       description: 'A customization interface for selecting pizza sizes and toppings.',
-      repository: 'https://github.com/Arifulla-Kazi-Dev/MyProjects/tree/main/Pizza',
-      liveUrl: 'https://steady-swan-96bff1.netlify.app/'
+      repository: 'https://github.com/Arifulla-Kazi-Dev/Pizza',
+      liveUrl: 'https://arifulla-kazi-dev.github.io/Pizza/home'
     }
   ];
 }

@@ -101,6 +101,44 @@ img {
   color: var(--text);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
 .site-main {
   overflow: hidden;
 }
@@ -109,11 +147,6 @@ img {
   position: relative;
   padding: clamp(4.5rem, 9vw, 7.25rem) 1.25rem;
   scroll-margin-top: 4.75rem;
-}
-
-.page-section:not(.hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 720px;
 }
 
 .page-section--muted {
