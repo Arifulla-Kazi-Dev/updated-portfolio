@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AboutComponent } from '../about/about.component';
+import { BusinessCardComponent } from '../business-card/business-card.component';
 import { CertificateComponent } from '../certificate/certificate.component';
 import { ContactComponent } from '../contact/contact.component';
 import { ExperienceComponent } from '../experience/experience.component';
@@ -20,6 +21,7 @@ import { SkillsComponent } from '../skills/skills.component';
     ExperienceComponent,
     CertificateComponent,
     ProjectsComponent,
+    BusinessCardComponent,
     ContactComponent
   ],
   templateUrl: './home.component.html'

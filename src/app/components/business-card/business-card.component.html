@@ -1,0 +1,89 @@
+<section id="card" class="page-section" aria-labelledby="card-title">
+  <div class="container card-layout">
+    <div class="card-intro" appReveal revealVariant="left">
+      <p class="eyebrow">Digital Business Card</p>
+      <h2 id="card-title" class="section-title">Take my card.</h2>
+      <p class="section-copy">
+        The same card I hand out in person. Flip it over for my details, or save it
+        straight to your phone's contacts.
+      </p>
+    </div>
+
+    <div class="card-contact" appReveal [revealDelay]="40">
+      <div class="card-actions">
+        <a class="button" href="card/arifulla-kazi.vcf" download="Arifulla-Kazi.vcf">
+          <app-icon name="users" size="sm" />
+          Save contact
+        </a>
+        <a class="button button--secondary" [href]="'tel:' + phone">
+          <app-icon name="phone" size="sm" />
+          Call
+        </a>
+        <a class="button button--secondary" [href]="'mailto:' + email">
+          <app-icon name="mail" size="sm" />
+          Email
+        </a>
+        <a class="button button--quiet" [href]="website" target="_blank" rel="noopener noreferrer">
+          <app-icon name="globe" size="sm" />
+          Website
+        </a>
+      </div>
+
+      <dl class="card-details">
+        <div><dt>Phone</dt><dd><a [href]="'tel:' + phone">{{ phoneLabel }}</a></dd></div>
+        <div><dt>Email</dt><dd><a [href]="'mailto:' + email">{{ email }}</a></dd></div>
+        <div><dt>Based in</dt><dd>Goa, India</dd></div>
+      </dl>
+    </div>
+
+    <div class="card-stage" appReveal revealVariant="scale" [revealDelay]="80">
+      <div class="scene">
+        <div #tilt class="tilt">
+          <button
+            type="button"
+            class="flipper"
+            [class.is-flipped]="flipped()"
+            (click)="flip()"
+            [attr.aria-pressed]="flipped()"
+            [attr.aria-label]="flipped()
+              ? 'Business card, back side: Arifulla Kazi, Founder and Director. Press to show the front.'
+              : 'Business card, front side: RentPhoenix Technologies. Press to flip and see contact details.'"
+          >
+            <span class="face face--front">
+              <img
+                src="card/card-front.webp"
+                srcset="card/card-front-640.webp 640w, card/card-front.webp 1050w"
+                sizes="(min-width: 900px) 520px, 90vw"
+                width="1050"
+                height="600"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              >
+              <span class="glare" aria-hidden="true"></span>
+            </span>
+            <span class="face face--back">
+              <img
+                src="card/card-back.webp"
+                srcset="card/card-back-640.webp 640w, card/card-back.webp 1050w"
+                sizes="(min-width: 900px) 520px, 90vw"
+                width="1050"
+                height="600"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              >
+              <span class="glare" aria-hidden="true"></span>
+            </span>
+          </button>
+        </div>
+        <span class="card-shadow" aria-hidden="true"></span>
+      </div>
+
+      <p class="flip-hint" aria-hidden="true">
+        <app-icon name="sync" size="sm" />
+        {{ flipped() ? 'Tap to see the front' : 'Tap the card to flip it' }}
+      </p>
+    </div>
+  </div>
+</section>
