@@ -14,7 +14,7 @@ interface ProductFact {
   value: string;
 }
 
-const COMPANY_URL = 'https://arifulla-kazi-dev.github.io/rentphoenix-company-website/';
+const COMPANY_URL = 'https://rentphoenixtech.in/';
 
 @Component({
   selector: 'app-rentphoenix',
